@@ -48,9 +48,33 @@ for (let i = 0; i <10 ; i++) {
 }
 console.log(count);
 }
-var ar =[...Array(11)].map(e => Array(11));
+// var ar =[...Array(11)].map(e => Array(11));
+function runProgram(input) {
+    input=input.trim().split(" ").map(Number)
+    fkm(input[2],input[0]-1,input[1]-1)
+let count=0
+
+for (let i = 0; i <10 ; i++) {
+    for (let j = 0; j <10; j++) {
+        if(ar[i][j]==1){
+           count++
+        }    
+    }
+}
+
+console.log(count);
+}
+var ar =[]
+for (var i = 0; i <10; i++){
+let arr=[]
+for (let j = 0; j <10; j++) {
+    arr.push(0)
+}
+ar.push(arr)
+}
+
 function fkm(n,i,j){
-    if(i<0 || i>10 || j<0 || j>10){
+    if(i<0 || i>9 || j<0 || j>9){
         return 
     }
     if(n==0){
@@ -67,6 +91,7 @@ function fkm(n,i,j){
     fkm(n-1,i+1,j+2)
     
 }
+
 
 // length of arrays
 function fun(i,l) {
@@ -108,6 +133,7 @@ function fun(a,l) {
 check(arr,0,arr.length-1,k) // first function call   
 
 // max recursnio
+n=a.length
 function findMaxRec(A[], n){
       if(n == 1)
         return A[0];
@@ -136,32 +162,30 @@ function findProductOfArrayNumbers(A,N)
 
 
 //reverseString
-str: String 
-n  : String length [ integer]
+let a="abcd"
+let l=a.length
 
-function reverseString(str,n)
-    {
-        if ((str==null)||(n<=1)
-                {
-                 print(str)
-                }
-        else
-        {
-            print(str.charAt(n-1))
-            reverse(str.substring(0,n-1))
-        }
-    }
+function str(a,l){
+    // console.log(a);
+if(a==null || l<=1){
+    console.log(a);
+}else{
+    console.log(a.charAt(l-1));
+    return str(a.substring(0,l-1),l-1)
+}
+} 
 
 // findMax
-A: Array of integers
-N: Size of an Array [integer]
-function findMax(A,N)
+function max_e(a,l)
 {
-   if(n == 1)
-       return A[0];
-   else   
-      return Math.max( A[N-1], findMax(A, N-1) );
+  if(l<=1){
+      return a[0]
+  }else{
+      return (Math.max(max_e(a,l-1),a[l-1]))
+  }
 }
+let a=[5,2,3,4]
+let l=a.length
 
 //Searching for an Element in an Array :-
 A: Array of Integers 
@@ -203,6 +227,5 @@ if(r<l+1){
 }
 return true
 } 
-
-
 console.log('str(a,l,r):', str(a,l,r))
+
